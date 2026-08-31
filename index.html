@@ -1,0 +1,155 @@
+<!-- Main wedding site. Edit the placeholder names below to your own. -->
+<title>Archer &amp; Austin — June 8, 2027</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Join us to celebrate our wedding at Antigua Gardens, June 8th 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<body>
+
+  <header class="hero">
+    <nav class="nav">
+      <a href="#home" class="nav-brand">A &amp; A</a>
+      <div class="nav-links">
+        <a href="#details">Details</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#rsvp">RSVP</a>
+      </div>
+    </nav>
+
+    <div class="hero-content" id="home">
+      <p class="hero-eyebrow">Together with our families</p>
+      <h1 class="hero-title">Archer&nbsp;&amp;&nbsp;Austin</h1>
+      <p class="hero-subtitle">are getting married</p>
+      <div class="hero-date">
+        <span>June 8, 2027</span>
+        <span class="dot">&bull;</span>
+        <span>Antigua Gardens</span>
+      </div>
+      <a href="#rsvp" class="btn btn-primary">RSVP</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section" id="details">
+      <h2 class="section-title">Details</h2>
+      <div class="details-grid">
+        <div class="detail-card">
+          <h3>When</h3>
+          <p>Saturday, June 8th, 2027</p>
+          <p class="muted">Ceremony begins at 6:00 PM</p>
+        </div>
+        <div class="detail-card">
+          <h3>Where</h3>
+          <p>Antigua Gardens</p>
+          <p class="muted">2645 N 16th St, Phoenix, AZ 85006</p>
+        </div>
+        <div class="detail-card">
+          <h3>Attire</h3>
+          <p>Garden Formal</p>
+          <p class="muted">The ceremony is outdoors (about 30 minutes) and the reception will follow immediately indoors</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="schedule">
+      <h2 class="section-title">Schedule</h2>
+      <ul class="timeline">
+        <li>
+          <span class="timeline-time">5:30 PM</span>
+          <span class="timeline-event">Guest arrival</span>
+        </li>
+        <li>
+          <span class="timeline-time">6:00 PM</span>
+          <span class="timeline-event">Ceremony</span>
+        </li>
+        <li>
+          <span class="timeline-time">6:30 PM</span>
+          <span class="timeline-event">Cocktail hour</span>
+        </li>
+        <li>
+          <span class="timeline-time">7:30 PM</span>
+          <span class="timeline-event">Dinner &amp; Reception</span>
+        </li>
+        <li>
+          <span class="timeline-time">12:30 AM</span>
+          <span class="timeline-event">Last Call and Send-off</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="section" id="rsvp">
+      <h2 class="section-title">RSVP</h2>
+      <p class="section-subtitle">Kindly respond by May 1st, 2027</p>
+
+      <form id="rsvp-form" class="rsvp-form" novalidate>
+        <div class="form-row">
+          <label for="name">Full name(s) *</label>
+          <input type="text" id="name" name="name" required placeholder="Jamie Smith">
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required placeholder="jamie@example.com">
+        </div>
+
+        <fieldset class="form-row">
+          <legend>Will you attend? *</legend>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="attending" value="Yes" required>
+              <span>Joyfully accepts</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="attending" value="No" required>
+              <span>Regretfully declines</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-row">
+          <label for="guests">Number attending (including you)</label>
+          <select id="guests" name="guests">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="dietary">Dietary restrictions / allergies</label>
+          <textarea id="dietary" name="dietary" rows="2" placeholder="e.g. vegetarian, gluten-free, none"></textarea>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message for the couple (optional)</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+
+        <!-- Honeypot field to deter simple bots. Real visitors never see or fill this. -->
+        <div class="form-row honeypot" aria-hidden="true">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="rsvp-submit">Send RSVP</button>
+
+        <p class="form-status" id="rsvp-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>We can't wait to celebrate with you.</p>
+    <p class="muted">Archer &amp; Austin &bull; June 8, 2027 &bull; Antigua Gardens</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>

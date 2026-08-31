@@ -1,0 +1,109 @@
+<!--
+  Hidden RSVP tracking page.
+
+  This page is intentionally NOT linked from index.html or included in any
+  nav menu — it's only reachable if you know the URL (rsvp-admin.html).
+  robots.txt also excludes it from search indexing. That's obscurity, not
+  real access control by itself — the password gate below (backed by
+  server.js) is what actually protects the live guest list.
+
+  Requires running `node server.js` (not just a static file server) for the
+  live data panel to work — see README.md.
+-->
+<title>RSVP Tracking (Hidden)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<body>
+  <div class="admin-body">
+    <div class="admin-header">
+      <h1 class="section-title" style="text-align:left; margin-bottom: 0.5rem;">RSVP Tracking</h1>
+      <p class="muted">Private page — not linked anywhere on the public site.</p>
+    </div>
+
+    <!-- ===== Live guest list (from Formspree, via server.js) ===== -->
+
+    <section id="login-card" class="callout">
+      <strong>Live guest list</strong>
+      <p style="margin: 0.5rem 0 1rem;">Enter the admin password to load current RSVPs from the database.</p>
+      <form id="login-form" class="admin-actions" style="margin: 0; align-items: center;">
+        <input
+          type="password"
+          id="password-input"
+          placeholder="Admin password"
+          autocomplete="current-password"
+          style="padding: 0.6rem 0.9rem; border: 1px solid var(--color-border); border-radius: 8px; font-family: inherit; font-size: 1rem; min-width: 220px;"
+        >
+        <button type="submit" class="btn btn-primary" style="padding: 0.6rem 1.4rem;">Unlock</button>
+      </form>
+      <p class="form-status" id="login-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="live-section" hidden>
+      <div class="admin-actions">
+        <button class="btn btn-secondary" id="live-refresh-btn">Refresh</button>
+        <button class="btn btn-secondary" id="live-export-btn">Export CSV</button>
+        <button class="btn btn-secondary" id="lock-btn">Lock</button>
+      </div>
+      <p class="form-status" id="live-status" role="status" aria-live="polite"></p>
+      <div class="admin-table-wrap">
+        <table class="admin-table" id="live-table">
+          <thead>
+            <tr>
+              <th>Submitted</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Attending</th>
+              <th>Guests</th>
+              <th>Dietary</th>
+              <th>Message</th>
+            </tr>
+          </thead>
+          <tbody id="live-table-body"></tbody>
+        </table>
+        <div class="empty-state" id="live-empty-state" hidden>No RSVPs yet.</div>
+      </div>
+    </section>
+
+    <!-- ===== Local test data (this browser only) ===== -->
+
+    <div class="admin-header" style="margin-top: 3rem;">
+      <h2 class="section-title" style="text-align:left; font-size: 1.4rem; margin-bottom: 0.5rem;">
+        Local test data
+      </h2>
+      <p class="muted">
+        RSVPs submitted from <em>this browser only</em> — useful while testing the form
+        locally. This is separate from the live list above.
+      </p>
+    </div>
+
+    <div class="admin-actions">
+      <button class="btn btn-secondary" id="refresh-btn">Refresh</button>
+      <button class="btn btn-secondary" id="export-btn">Export CSV</button>
+      <button class="btn btn-secondary" id="clear-btn">Clear local data</button>
+    </div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table" id="rsvp-table">
+        <thead>
+          <tr>
+            <th>Submitted</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Attending</th>
+            <th>Guests</th>
+            <th>Dietary</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody id="rsvp-table-body"></tbody>
+      </table>
+      <div class="empty-state" id="empty-state" hidden>No local RSVPs yet.</div>
+    </div>
+  </div>
+
+  <script src="rsvp-admin.js"></script>
+</body>

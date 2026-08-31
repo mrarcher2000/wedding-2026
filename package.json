@@ -1,0 +1,15 @@
+{
+  "name": "wedding-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static wedding site with a small proxy server for the hidden RSVP admin page.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0",
+    "node-fetch": "^2.7.0"
+  }
+}
