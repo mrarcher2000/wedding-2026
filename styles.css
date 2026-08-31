@@ -52,12 +52,15 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 1.5rem 1.5rem 0;
 }
 
 .nav-brand {
+  flex-shrink: 0;
   font-family: var(--font-display);
   font-size: 1.4rem;
   text-decoration: none;
@@ -67,7 +70,8 @@ a {
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
 }
 
 .nav-links a {
@@ -261,6 +265,24 @@ a {
   min-width: 90px;
   font-weight: 700;
   color: var(--color-gold);
+}
+
+/* ---------- Honeymoon fund ---------- */
+
+.honeymoon-card {
+  max-width: 360px;
+  margin: 2.5rem auto 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.honeymoon-card .zelle-qr {
+  max-width: 220px;
+  margin: 0 auto 1rem;
+  border-radius: 8px;
 }
 
 /* ---------- RSVP form ---------- */
