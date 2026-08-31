@@ -1,13 +1,14 @@
 :root {
-  --color-bg: #faf7f0;
-  --color-bg-alt: #f1ece0;
+  --color-bg: #F9F5EC;
+  --color-bg-alt: #FDFCFA;
   --color-ink: #2f3b2c;
   --color-ink-soft: #5c6858;
-  --color-accent: #6b7f52;
-  --color-accent-dark: #4a5a3a;
-  --color-gold: #b7965f;
+  --color-accent: #a0ddb7;
+  --color-accent-dark: #509e6f;
+  --color-gold: #bc922f;
   --color-border: #e3dcc9;
   --color-white: #ffffff;
+
 
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -79,16 +80,13 @@ a {
 }
 
 .nav-links a:hover {
-  border-color: var(--color-gold);
+  border-color: var(--color-accent);
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(183, 150, 95, 0.12), transparent 45%),
-    radial-gradient(circle at 80% 0%, rgba(107, 127, 82, 0.14), transparent 50%),
-    var(--color-bg);
+  background: var(--color-bg-alt);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -103,7 +101,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 0.8rem;
-  color: var(--color-gold);
+  color: var(--color-accent-dark);
   margin: 0 0 1rem;
 }
 
@@ -134,7 +132,7 @@ a {
 }
 
 .hero-date .dot {
-  color: var(--color-gold);
+  color: var(--color-accent-dark);
 }
 
 /* ---------- Buttons ---------- */
@@ -159,8 +157,9 @@ a {
 
 .btn-primary:hover {
   background: var(--color-accent-dark);
+  color: var(--color-white);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(74, 90, 58, 0.25);
+  box-shadow: 0 6px 16px rgba(44, 91, 65, 0.25);
 }
 
 .btn-primary:disabled {
@@ -198,7 +197,7 @@ a {
   font-size: 2rem;
   text-align: center;
   color: var(--color-accent-dark);
-  margin: 0 0 0.5rem;
+  margin: 0 auto 0.5rem;
 }
 
 .section-subtitle {
@@ -211,13 +210,16 @@ a {
 /* ---------- Details ---------- */
 
 .details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   margin-top: 2.5rem;
 }
 
 .detail-card {
+  flex: 1 1 220px;
+  max-width: 320px;
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: 12px;
@@ -239,11 +241,9 @@ a {
 
 .timeline {
   list-style: none;
-  margin: 2.5rem 0 0;
-  padding: 0;
+  margin: 2.5rem auto 0;
+  padding: 0 1.5rem;
   max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .timeline li {
