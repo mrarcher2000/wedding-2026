@@ -1,4 +1,28 @@
 // ---------------------------------------------------------------------------
+// Mobile nav toggle
+// ---------------------------------------------------------------------------
+
+const navToggle = document.getElementById("nav-toggle");
+const navLinks = document.getElementById("nav-links");
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  // Close the menu once a link is tapped, so it doesn't stay open after navigating.
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("is-open");
+      navToggle.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// ---------------------------------------------------------------------------
 // RSVP form handling.
 //
 // Submits to our own server (POST /api/rsvp), which stores the RSVP in
