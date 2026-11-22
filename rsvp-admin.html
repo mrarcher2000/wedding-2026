@@ -63,6 +63,13 @@
             </tr>
           </thead>
           <tbody id="live-table-body"></tbody>
+          <tfoot id="live-table-foot" hidden>
+            <tr>
+              <td colspan="4">Total guests attending</td>
+              <td id="live-guest-total">0</td>
+              <td colspan="2"></td>
+            </tr>
+          </tfoot>
         </table>
         <div class="empty-state" id="live-empty-state" hidden>No RSVPs yet.</div>
       </div>
@@ -100,6 +107,13 @@
           </tr>
         </thead>
         <tbody id="rsvp-table-body"></tbody>
+        <tfoot id="rsvp-table-foot" hidden>
+          <tr>
+            <td colspan="4">Total guests attending</td>
+            <td id="rsvp-guest-total">0</td>
+            <td colspan="2"></td>
+          </tr>
+        </tfoot>
       </table>
       <div class="empty-state" id="empty-state" hidden>No local RSVPs yet.</div>
     </div>

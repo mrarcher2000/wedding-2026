@@ -20,6 +20,8 @@ const liveSection = document.getElementById("live-section");
 const liveStatus = document.getElementById("live-status");
 const liveTableBody = document.getElementById("live-table-body");
 const liveEmptyState = document.getElementById("live-empty-state");
+const liveTableFoot = document.getElementById("live-table-foot");
+const liveGuestTotal = document.getElementById("live-guest-total");
 
 let liveEntries = [];
 
@@ -114,13 +116,17 @@ function renderLiveTable() {
 
   if (entries.length === 0) {
     liveEmptyState.hidden = false;
+    liveTableFoot.hidden = true;
     return;
   }
   liveEmptyState.hidden = true;
+  liveTableFoot.hidden = false;
 
   for (const entry of entries) {
     liveTableBody.appendChild(buildRow(entry));
   }
+
+  liveGuestTotal.textContent = totalGuests(entries);
 }
 
 function setLoginStatus(message, type) {
@@ -134,6 +140,8 @@ function setLoginStatus(message, type) {
 
 const tableBody = document.getElementById("rsvp-table-body");
 const emptyState = document.getElementById("empty-state");
+const tableFoot = document.getElementById("rsvp-table-foot");
+const guestTotal = document.getElementById("rsvp-guest-total");
 const refreshBtn = document.getElementById("refresh-btn");
 const exportBtn = document.getElementById("export-btn");
 const clearBtn = document.getElementById("clear-btn");
@@ -158,13 +166,17 @@ function renderLocal() {
 
   if (entries.length === 0) {
     emptyState.hidden = false;
+    tableFoot.hidden = true;
     return;
   }
   emptyState.hidden = true;
+  tableFoot.hidden = false;
 
   for (const entry of entries) {
     tableBody.appendChild(buildRow(entry));
   }
+
+  guestTotal.textContent = totalGuests(entries);
 }
 
 function clearLocal() {
@@ -177,6 +189,13 @@ function clearLocal() {
 // ---------------------------------------------------------------------------
 // Shared helpers
 // ---------------------------------------------------------------------------
+
+function totalGuests(entries) {
+  return entries.reduce((sum, entry) => {
+    if (String(entry.attending).trim().toLowerCase() === "no") return sum;
+    return sum + (parseInt(entry.guests, 10) || 0);
+  }, 0);
+}
 
 function buildRow(entry) {
   const row = document.createElement("tr");
