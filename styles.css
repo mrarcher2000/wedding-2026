@@ -474,6 +474,11 @@ table.admin-table th {
   background: var(--color-bg-alt);
 }
 
+table.admin-table tfoot td {
+  font-weight: 700;
+  border-bottom: none;
+}
+
 table.admin-table td.wrap {
   white-space: normal;
   min-width: 180px;
